@@ -1,16 +1,18 @@
 package com.guide.cm.reportgenerator.proxy;
 
+import org.apache.commons.lang.StringUtils;
+
 public class FeeEntry {
 
     FeeCalculation feeCalculation;
     private long id;
     private long fees;
-    private String feeType;
-    private String feeHead;
-    private String date;
+    private String feeType = StringUtils.EMPTY;
+    private String feeHead = StringUtils.EMPTY;
+    private String date = StringUtils.EMPTY;
     private long receiptNo;
-    private int year;
-    private String gstNo;
+    private String assessMentYear = StringUtils.EMPTY;
+    private String gstNo = StringUtils.EMPTY;
 
     public String getGstNo() {
         return gstNo;
@@ -76,11 +78,12 @@ public class FeeEntry {
         this.receiptNo = receiptNo;
     }
 
-    public int getYear() {
-        return year;
+
+    public String getAssessMentYear() {
+        return assessMentYear;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setAssessMentYear(String assessMentYear) {
+        this.assessMentYear = assessMentYear;
     }
 }
