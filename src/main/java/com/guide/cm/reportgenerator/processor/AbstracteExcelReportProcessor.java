@@ -55,6 +55,15 @@ public class AbstracteExcelReportProcessor {
             if(field.getName().toUpperCase().contains("FEETYPE"))
             {
                 headerCell.setCellValue("FEE_TYPE");
+            }else if(field.getName().toUpperCase().contains("DATE"))
+            {
+                headerCell.setCellValue("DATE");
+            }else if(field.getName().toUpperCase().contains("RECEIPTNO"))
+            {
+                headerCell.setCellValue("RCPT_NO");
+            }else if(field.getName().toUpperCase().contains("YEAR"))
+            {
+                headerCell.setCellValue("Year");
             }else {
                 headerCell.setCellValue(field.getName().replace("Fees", "").toUpperCase());
             }

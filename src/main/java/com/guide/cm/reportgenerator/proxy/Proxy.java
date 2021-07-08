@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@FeignClient(name="USER-PROFILE-SERVICE")
-public interface UserProfileProxy {
+@FeignClient(name = "API-GATEWAY")
+public interface Proxy {
 
-    @GetMapping("/findAll")
+    @GetMapping("client/findAll")
     public List<Client> findAllClients();
 
+    @GetMapping("fee/feeEntry/getAll")
+    public List<FeeCalculation> findAllFeeCalculation();
 }
