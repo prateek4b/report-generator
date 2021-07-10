@@ -8,6 +8,8 @@ import com.guide.cm.reportgenerator.reportviews.AllReportFeesAndTypeView;
 import com.guide.cm.reportgenerator.reportviews.AllReportFeesView;
 import com.guide.cm.reportgenerator.reportviews.AllReportView;
 import com.guide.cm.reportgenerator.reportviews.ReportView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,9 +28,10 @@ import java.util.stream.Collectors;
 @RequestMapping("report")
 public class ReportGeneratorController {
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     Proxy proxy;
-
 
     @Autowired
     ExcelProcessorAllReportFeesView excelProcessorAllReportFeesView;
@@ -41,6 +44,7 @@ public class ReportGeneratorController {
 
     @GetMapping("/allReportFeesView/{assessMentYear}")
     public List<ReportView> getReportFeesView(@PathVariable String assessMentYear) throws IOException, IllegalAccessException {
+        logger.info("Entering getReportFeesView");
         List<ReportView> reportViews = new ArrayList<>();
 
         List<FeeCalculation> feeCalculationList = proxy.findAllFeeCalculation();
@@ -63,6 +67,9 @@ public class ReportGeneratorController {
 
     @GetMapping("/allReportFeesAndTypeView/{assessMentYear}")
     public List<ReportView> getReportFeesAndTypeView(@PathVariable String assessMentYear) throws IOException, IllegalAccessException {
+
+        logger.info("Entering getReportFeesAndTypeView");
+
         List<ReportView> reportViews = new ArrayList<>();
 
         List<FeeCalculation> feeCalculationList = proxy.findAllFeeCalculation();
@@ -85,6 +92,8 @@ public class ReportGeneratorController {
 
     @GetMapping("/allReportView/{assessMentYear}")
     public List<ReportView> getReportView(@PathVariable String assessMentYear) throws IOException, IllegalAccessException {
+        logger.info("Entering getReportView");
+
         List<ReportView> reportViews = new ArrayList<>();
 
         List<FeeCalculation> feeCalculationList = proxy.findAllFeeCalculation();
