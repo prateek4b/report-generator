@@ -124,6 +124,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>2.3.1.RELEASE</version>
+				<configuration>
+					<image>
+						<name>prateek4b/gst-${project.artifactId}:0.0.1</name>
+					</image>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
